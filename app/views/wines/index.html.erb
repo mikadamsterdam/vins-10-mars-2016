@@ -8,7 +8,7 @@
       <th>Name</th>
       <th>Description</th>
       <th>Origin</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -21,7 +21,8 @@
         <td><%= link_to 'Show', wine %></td>
         <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
         <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'new_wine_review',  new_wine_review_path(wine_id) %></td>
+        </tr>
     <% end %>
   </tbody>
 </table>
