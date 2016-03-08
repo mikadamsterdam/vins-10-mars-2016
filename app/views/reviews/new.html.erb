@@ -2,4 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', reviews_path %>
+<!-- /wines/:wine_id/reviews/:id -->
+<%= link_to 'Back', wine_reviews_path(@review.wine) %>

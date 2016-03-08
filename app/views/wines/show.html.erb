@@ -15,5 +15,7 @@
   <%= @wine.origin %>
 </p>
 
+<!-- /wines/:wine_id/reviews/:id -->
+<%= link_to 'Reviews', wine_reviews_path(@wine) %>
 <%= link_to 'Edit', edit_wine_path(@wine) %> |
 <%= link_to 'Back', wines_path %>
