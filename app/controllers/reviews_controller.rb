@@ -8,7 +8,9 @@ class ReviewsController < ApplicationController
     #1st I am retrieving the wine thanks to params[wine_id]
     wine = Wine.find(params[:wine_id])
     #2nd I get all the reviews of this wine
-    @reviews = wine.reviews
+  #@reviews = wine.reviews
+    @reviews = Review.all
+
   end
 
   # GET /reviews/1
@@ -22,7 +24,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    #@review = Review.new
+    @review = Review.new
     #1st I am retrieving the wine thanks to params[wine_id]
     wine = Wine.find(params[:wine_id])
     #2nd I am building a new review
@@ -39,27 +41,26 @@ end
     #1st I am retrieving the wine thanks to params[wine_id]
     wine = Wine.find(params[:wine_id])
     #2nd I retrieve the review thanks to params[:id]
-    @review = wine.reviews.find(params[:id])
+    @review = revie.find(params[:id])
   end
 
   # POST /reviews
   # POST /reviews.json
   def create
-    #@review = Review.new(review_params)
+  #@review = Review.new(review_params)
 
     #1st I am retrieving the wine thanks to params[wine_id]
-    wine = Wine.find(params[:wine_id])
+  @wine = Wine.find(params[:wine_id])
     #2nd I create the review with the arguments in params[:review]
-    @review = wine.reviews.create(params[:review])
+    @review = @wine.reviews.create!(params.require(:review).permit!)
 
     respond_to do |format|
       if @review.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
         format.html { redirect_to [@review.wine, @review], notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
+
       end
     end
   end
