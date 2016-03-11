@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-#before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   # GET /reviews
   # GET /reviews.json
@@ -27,12 +27,7 @@ class ReviewsController < ApplicationController
     wine = Wine.find(params[:wine_id])
     #2nd I am building a new review
     @review = wine.reviews.build
-
-    respond_to do |format|
-     format.html # new.html.erb
-     format.xml  { render :xml => @comment }
   end
-end
 
   # GET /reviews/1/edit
   def edit

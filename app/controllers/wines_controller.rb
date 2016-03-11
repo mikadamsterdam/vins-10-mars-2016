@@ -10,6 +10,7 @@ class WinesController < ApplicationController
   # GET /wines/1
   # GET /wines/1.json
   def show
+  #@wine = Wine.find(parms[:id])
   end
 
   # GET /wines/new
@@ -19,6 +20,8 @@ class WinesController < ApplicationController
 
   # GET /wines/1/edit
   def edit
+  #@wine = Wine.find(parms[:id])
+  #@review = @wine.review
   end
 
   # POST /wines

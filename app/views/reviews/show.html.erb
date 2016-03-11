@@ -20,5 +20,7 @@
   <%= @review.wine %>
 </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<!-- /wines/:wine_id/reviews/:id -->
+<%= link_to 'Edit', edit_wine_review_path(@review.wine ,@review ) %> |
+<!-- /wines/:wine_id/reviews/:id -->
+<%= link_to 'Back', wine_reviews_path %>
