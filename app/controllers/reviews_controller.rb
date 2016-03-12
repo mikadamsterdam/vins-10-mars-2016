@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     #1st I am retrieving the wine thanks to params[wine_id]
     wine = Wine.find(params[:wine_id])
     #2nd I get all the reviews of this wine thanks to params[:id]
-    @review = wine.reviews.find(params[:id])
+    @review = Review.find(params[:id])
   end
 
   # GET /reviews/new
